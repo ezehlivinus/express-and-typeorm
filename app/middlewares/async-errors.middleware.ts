@@ -9,7 +9,7 @@ export default (error: Error, req: Request, res: Response, next: NextFunction) =
   };
 
   log.error(error);
-  log.error('From async error middleware', error);
-  next(error);
+  // Cannot set headers after they are sent to the client, when next(error) uncomment
+  // next(error);
   return res.status(500).send(data);
 };

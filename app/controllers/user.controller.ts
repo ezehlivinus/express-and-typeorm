@@ -1,8 +1,15 @@
 import { Request, Response } from 'express';
+import User from '../entities/user.entity';
 
 class UserController {
   async create(req: Request, res: Response): Promise<Response> {
-    return res.send('I have reached user.controller.create...');
+    let user: User = new User();
+
+    user = Object.assign(user, req.body);
+
+    await user.save();
+
+    return res.send({ message: 'I have reached user.controller.create...', data: user });
   }
 
   async list(req: Request, res: Response): Promise<Response> {
