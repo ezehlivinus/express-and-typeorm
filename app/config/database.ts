@@ -18,9 +18,8 @@ const database = async () => {
 
     log.info('Connected to Postgres database...');
   } catch (error: any) {
-    log.error('Failed: Connection to database failed....');
+    log.error('Failed: Connection to the database failed....');
     log.error(error);
-    throw Error(error);
   }
 };
 

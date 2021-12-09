@@ -16,7 +16,10 @@ export default class Post extends Base {
   })
     content!: string;
 
-  @ManyToOne(() => User, (user) => user.posts)
+  @ManyToOne(() => User, (user) => user.posts, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE'
+  })
 
   @JoinColumn({
     name: 'user_id'

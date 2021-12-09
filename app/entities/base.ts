@@ -1,6 +1,6 @@
 import {
   BaseEntity,
-  Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn
+  CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn
 } from 'typeorm';
 
 @Entity()

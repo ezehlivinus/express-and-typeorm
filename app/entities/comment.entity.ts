@@ -13,15 +13,17 @@ export default class Comment extends Base {
   })
     content!: string;
 
-  @ManyToMany(() => User)
+  @ManyToMany(() => User, {
+    cascade: ['insert', 'update']
+  })
   @JoinTable({
     name: 'user_comments',
     joinColumn: {
-      name: 'comments',
+      name: 'commentId',
       referencedColumnName: 'id'
     },
     inverseJoinColumn: {
-      name: 'users',
+      name: 'userId',
       referencedColumnName: 'id'
     }
   })

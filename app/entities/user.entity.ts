@@ -7,7 +7,9 @@ import Post from './post.entity';
 
 @Entity('users')
 export default class User extends Base {
-  @Column()
+  @Column({
+    // unique: true
+  })
     email!: string;
 
   @Column()
@@ -25,7 +27,10 @@ export default class User extends Base {
   })
     roles!: string[];
 
-  @OneToMany(() => Post, (post) => post.user)
+  @OneToMany(() => Post, (post) => post.user, {
+    onUpdate: 'CASCADE',
+    onDelete: 'RESTRICT'
+  })
     posts!: Post[];
 
   @ManyToMany(() => Comment)
